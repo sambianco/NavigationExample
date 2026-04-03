@@ -21,7 +21,10 @@ import androidx.compose.ui.unit.dp
 import com.example.navigationexample.composable.AppBar
 
 @Composable
-fun ScreenTwo(){
+fun ScreenTwo(
+    onNavigateToFirst: () -> Unit, // <-- Parametro 1
+    onNavigateToThird: () -> Unit  // <-- Parametro 2
+){
     Scaffold(
         topBar = { AppBar("Screen Two") }
     ) { contentPAdding ->
@@ -35,13 +38,13 @@ fun ScreenTwo(){
                 horizontalArrangement = Arrangement.Center, // Centra orizzontalmente
                 verticalAlignment = Alignment.CenterVertically // Centra verticalmente
             ) {
-                Button(onClick = { /* azione 1 */ }) {
+                Button(onClick = { onNavigateToFirst() }) {
                     Text("to first screen")
                 }
 
                 Spacer(modifier = Modifier.width(16.dp)) // Un po' di spazio tra i due
 
-                Button(onClick = { /* azione 2 */ }) {
+                Button(onClick = { onNavigateToThird() }) {
                     Text("to third screen")
                 }
             }

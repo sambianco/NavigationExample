@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.navigationexample.screen.ScreenOne
+import com.example.navigationexample.screen.ScreenThree
+import com.example.navigationexample.screen.ScreenTwo
 
 @Composable
 fun NavGraph(navController: NavHostController) {
@@ -12,13 +15,13 @@ fun NavGraph(navController: NavHostController) {
         startDestination = NavigationRoute.Screen1
     ) {
         composable<NavigationRoute.Screen1> {
-            Screen1(navController)
+            ScreenOne(navController)
         }
         composable<NavigationRoute.Screen2> {
-            NavigationRoute.Screen2(navController)
+            ScreenTwo(navController)
         }
         composable<NavigationRoute.Screen3> {
-            Screen3(navController)
+            ScreenThree(navController)
         }
     }
 }

@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import com.example.navigationexample.composable.AppBar
 
 @Composable
-fun ScreenOne(){
+fun ScreenOne(onNavigateToSecond: ()-> Unit){
     Scaffold(
         topBar = { AppBar("Screen One") }
     ) { contentPAdding ->
@@ -30,7 +30,7 @@ fun ScreenOne(){
                 contentAlignment = Alignment.Center
             ) {
                 Button(
-                    onClick = {},
+                    onClick = {onNavigateToSecond()},
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("to Second Screen")

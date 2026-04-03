@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.navigationexample.navigation.NavGraph
 import com.example.navigationexample.screen.ScreenOne
 import com.example.navigationexample.screen.ScreenThree
 import com.example.navigationexample.screen.ScreenTwo
@@ -22,9 +24,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NavigationExampleTheme {
-                //ScreenOne()
-                ScreenTwo()
-                //ScreenThree()
+                // 1. Inizializza il NavController
+                val navController = rememberNavController()
+                // 2. Passa il navController al NavGraph
+                NavGraph(navController = navController)
+
             }
         }
     }
