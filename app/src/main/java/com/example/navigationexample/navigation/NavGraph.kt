@@ -15,13 +15,16 @@ fun NavGraph(navController: NavHostController) {
         startDestination = NavigationRoute.Screen1
     ) {
         composable<NavigationRoute.Screen1> {
-            ScreenOne(navController)
+            ScreenOne(onNavigateToSecond = { navController.navigate(NavigationRoute.Screen2) })
         }
         composable<NavigationRoute.Screen2> {
-            ScreenTwo(navController)
+            ScreenTwo(
+                onNavigateToFirst = { navController.navigate(NavigationRoute.Screen1) },
+                onNavigateToThird = { navController.navigate(NavigationRoute.Screen3) }
+            )
         }
         composable<NavigationRoute.Screen3> {
-            ScreenThree(navController)
+            ScreenThree(onNavigateToSecond = { navController.navigate(NavigationRoute.Screen2) })
         }
     }
 }
